@@ -1,11 +1,16 @@
 // @flow
+import {Card as CardType, CardDeck as CardDeckType} from '../types.js';
 
-export default class Cards {
+export function returnSuits() {
+  return ['hearts', 'clubs', 'spades', 'diamonds'];
+}
+
+export class CardDeck {
   cardsInSuits: number;
   suits: Array<string>;
   constructor() {
     this.cardsInSuits = 13;
-    this.suits = ['hearts', 'clubs', 'spades', 'diamonds'];
+    this.suits = returnSuits();
     return this.returnDeck(this.suits, this.cardsInSuits);
   }
 
@@ -43,4 +48,28 @@ export default class Cards {
         return number.toString(); 
     }
   }
+}
+
+export function shuffleCards(cards: CardDeckType) {
+  // https://stackoverflow.com/a/12646864/2368141
+  for (let i = cards.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      // $FlowFixMe (https://github.com/mzabriskie/react-draggable/issues/283)
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+  return cards;
+}
+
+export function dealCards(deck: CardDeckType, count: number) {
+  // pull out top card
+  // remove card from deck and return new deck
+  let cards = [];
+  for (let i = 0; i < count; i++) {
+    cards = [...cards, deck[i]];
+  }
+  const newDeck = deck.slice(count, deck.length - 1);
+  return {
+    cards: cards,
+    deck: newDeck
+  };
 }
