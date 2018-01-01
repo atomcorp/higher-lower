@@ -7,13 +7,13 @@ import { CardDeck, shuffleCards, dealCards } from '../../components/cards.jsx';
 export default class Game {
 
   constructor() {
-    this.deck = initialise();
+    this.deck = this.initialise();
   }
 
   initialise() {
-    const newDeck = new CardDeck;
+    const newDeck = new CardDeck();
     const shuffledDeck = shuffleCards(newDeck);
-    const playingDeck = shuffledDeck.slice(1, 10);
+    const playingDeck = shuffledDeck.slice(0, 10);
     return playingDeck;
   }
 

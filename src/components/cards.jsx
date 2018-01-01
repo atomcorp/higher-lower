@@ -67,7 +67,7 @@ export function dealCards(deck: CardDeckType, count: number) {
   for (let i = 0; i < count; i++) {
     cards = [...cards, deck[i]];
   }
-  const newDeck = deck.slice(count, deck.length - 1);
+  const newDeck = deck.slice(count);
   return {
     cards: cards,
     deck: newDeck
