@@ -1,5 +1,5 @@
 // @flow
-import {Card as CardType, CardDeck as CardDeckType} from '../types.js';
+import {CardDeck as CardDeckType} from '../types.js';
 
 export function returnSuits() {
   return ['hearts', 'clubs', 'spades', 'diamonds'];
