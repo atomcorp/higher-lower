@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Card from '../card/card.jsx';
 import Game from '../../containers/game/game.jsx';
 import { Card as CardType, CardDeck as CardDeckType } from '../../types.js';
-import {isHigherOrLower, round} from '../game-logic.jsx';
+import {isHigherOrLower} from '../game-logic.jsx';
 
 type State = {
   inPlay: boolean,
@@ -16,7 +16,9 @@ type State = {
   won: boolean,
   cheat: boolean,
   wins: number,
-  losses: number
+  losses: number,
+  topScore: number,
+  currentScore: number
 };
 
 export default class Table extends Component<void, void, State> {
@@ -30,7 +32,9 @@ export default class Table extends Component<void, void, State> {
       won: false,
       cheat: true,
       wins: 0,
-      losses: 0
+      losses: 0,
+      topScore: 0,
+      currentScore: 0
     };
     // this.play = this.play.bind(this);
     // this.getCard = this.getCard.bind(this);
@@ -65,7 +69,8 @@ export default class Table extends Component<void, void, State> {
       this.won(nextCard);
     } else {
       this.setState({
-        card: nextCard
+        card: nextCard,
+        currentScore: this.state.currentScore + 1
       });
     }
   }
@@ -77,7 +82,8 @@ export default class Table extends Component<void, void, State> {
       card: {},
       game: new Game(),
       won: false,
-      losses: losses
+      losses: losses,
+      topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore
     });
   }
 
@@ -88,7 +94,8 @@ export default class Table extends Component<void, void, State> {
       card: card,
       won: true,
       game: new Game(),
-      wins: wins
+      wins: wins,
+      topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore
     });
   }
 
@@ -117,6 +124,14 @@ export default class Table extends Component<void, void, State> {
         }
         {
           this.state.won ? 'Won!' : 'Lost'
+        }
+        <br/>
+        {
+          `wins: ${this.state.wins}, losses: ${this.state.losses}`
+        }
+        <br/>
+        {
+          `top score: ${this.state.topScore}`
         }
       </section>
     );

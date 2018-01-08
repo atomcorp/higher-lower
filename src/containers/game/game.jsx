@@ -1,5 +1,4 @@
 // @flow
-import { CardDeck as CardDeckType } from '../../types.js';
 import { CardDeck, shuffleCards, dealCards } from '../../components/cards.jsx';
 
 // contains all game playing methods
