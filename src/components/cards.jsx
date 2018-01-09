@@ -9,9 +9,7 @@ export class CardDeck {
   cardsInSuits: number;
   suits: Array<string>;
   constructor() {
-    this.cardsInSuits = 13;
-    this.suits = returnSuits();
-    return this.returnDeck(this.suits, this.cardsInSuits);
+    return this.returnDeck(returnSuits(), 13);
   }
 
   returnCard(suit: string, value: number, name: string) {

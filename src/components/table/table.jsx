@@ -83,7 +83,8 @@ export default class Table extends Component<void, void, State> {
       game: new Game(),
       won: false,
       losses: losses,
-      topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore
+      topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore,
+      currentScore: 0
     });
   }
 
@@ -95,7 +96,8 @@ export default class Table extends Component<void, void, State> {
       won: true,
       game: new Game(),
       wins: wins,
-      topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore
+      topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore,
+      currentScore: 0
     });
   }
 

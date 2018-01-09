@@ -1,7 +1,7 @@
 Idea: 
   higher or low game
   play against a computer or another person
-  play online?
+  play online? (could use seperate phones for each player) and connect on a screenw
   CSS transitions to animate cards 
   player can select how many cards to draw
   add probability %
@@ -22,6 +22,7 @@ Rules (simple) / flow:
 
 Components:
   player
+  cards
   deck
   card
   rules
