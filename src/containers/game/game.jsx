@@ -1,5 +1,6 @@
 // @flow
 import { CardDeck, shuffleCards, dealCards } from '../../components/cards.jsx';
+import { Cards } from '../../components/cards.jsx';
 
 // contains all game playing methods
 
@@ -7,6 +8,9 @@ export default class Game {
 
   constructor() {
     this.deck = this.initialise();
+    const cardTest = Cards();
+    const deck = [];
+    console.log(cardTest.newDeck(deck));
   }
 
   initialise() {

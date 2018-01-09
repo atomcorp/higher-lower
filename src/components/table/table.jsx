@@ -99,7 +99,7 @@ export default class Table extends Component<void, void, State> {
       topScore: this.state.currentScore > this.state.topScore ? this.state.currentScore : this.state.topScore,
       currentScore: 0
     });
-  }
+  } 
 
   debugCheat() {
     console.log(this.state.game.currentDeck());
