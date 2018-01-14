@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import Table from '../../components/table/table.jsx';
+import Table from '../table/table.jsx';
 
 export default class Page extends Component {
 

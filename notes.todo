@@ -1,34 +1,37 @@
+Tasks: 
+
+
 Idea: 
-  higher or low game
-  play against a computer or another person
-  play online? (could use seperate phones for each player) and connect on a screenw
-  CSS transitions to animate cards 
-  player can select how many cards to draw
-  add probability %
+  ☐ higher or low game
+  ☐ play against a computer or another person
+  ☐ play online? (could use seperate phones for each player) and connect on a screen (websockets)
+  ☐ CSS transitions to animate cards 
+  ☐ player can select how many cards to draw
+  ☐ add probability %
 
 Rules (simple) / flow:
-  Player presses play button
-  Cards drawn
-  Cards shuffled
-  First 10 cards drawn (rest removed)
-  First card automatically placed
-  Users picks higher or lower
-  Next card shown
-    if card is a max card (ie 1/ace or 13/king) move to the next card
-    if wrong game ends
-    if right new card picked
-    if card is same, move to the next card
-  if player reaches last card they win
+  - Player presses play button
+  - Cards drawn
+  - Cards shuffled
+  - First 10 cards drawn (rest removed)
+  - First card automatically placed
+  - Users picks higher or lower
+  - Next card shown
+    - if card is a max card (ie 1/ace or 13/king) move to the next card
+    - if wrong game ends
+    - if right new card picked
+    - if card is same, move to the next card
+  - if player reaches last card they win
 
 Components:
-  player
-  cards
-  deck
-  card
-  rules
-  table (where we display cards) 
-  draw cards button
-  higher and lower buttons
+  - player
+  - cards
+  - deck
+  - card
+  - rules
+  - table (where we display cards) 
+  - draw cards button
+  - higher and lower buttons
 
 References:
   Card CSS: https://designshack.net/articles/css/css-card-tricks/

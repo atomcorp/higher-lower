@@ -1,5 +1,5 @@
 // @flow
-import { CardDeck as CardDeckType } from '../types.js';
+import { CardDeck as CardDeckType } from '../../types.js';
 
 // contains all game logic
 

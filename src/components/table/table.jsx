@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Card from '../card/card.jsx';
 import Game from '../../containers/game/game.jsx';
 import { Card as CardType, CardDeck as CardDeckType } from '../../types.js';
-import {isHigherOrLower} from '../game-logic.jsx';
+import {isHigherOrLower} from '../rules/rules.jsx';
 
 type State = {
   inPlay: boolean,
