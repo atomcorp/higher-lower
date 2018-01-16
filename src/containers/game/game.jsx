@@ -1,28 +1,19 @@
 // @flow
-import { newDeck, dealCards } from '../../components/cards/cards.jsx';
+import React, { Component } from 'react';
 
 // contains all game playing methods
+
+const State = {
+  players: {}, // 2, players
+  cards: [],
+  turn: 'player'
+}
 
 export default class Game {
 
   constructor() {
-    this.deck = this.initialise();
+
   }
 
-  initialise() {
-    const deck = newDeck();
-    const playingDeck = deck.slice(0, 10);
-    return playingDeck;
-  }
-
-  currentDeck() {
-    return this.deck;
-  }
-
-  playCard() {
-    const deal = dealCards(this.deck, 1);
-    this.deck = deal.deck;
-    return deal.cards;
-  }
 
 }

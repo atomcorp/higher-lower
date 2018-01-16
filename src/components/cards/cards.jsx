@@ -1,11 +1,16 @@
 // @flow
 import {CardDeck as CardDeckType} from '../../types.js';
 
-export function returnSuits() {
-  return ['hearts', 'clubs', 'spades', 'diamonds'];
+const cardVals = function() {
+  let arr = [];
+  for (var i = 0; i < 13; i++) {
+    arr.push(i);
+  }
+  return arr;
 }
 
-export const cards = [];
+export const cardValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+export const cardSuits = ['hearts', 'clubs', 'spades', 'diamonds'];
 
 function returnCard(suit: string, value: number, name: string) {
   const card = {
@@ -21,22 +26,24 @@ function resetDeck(deck) {
 }
 
 export function newDeck(deck: Array<void>) {
-  console.log('newDeck');
   return shuffleDeck(buildDeck(resetDeck(deck)));
 }
 
 function buildDeck(deck: Array<void>) {
-  ['hearts', 'clubs', 'spades', 'diamonds'].forEach((suit) => {
-    deck = [...deck, returnSuit(deck, suit)];
-  });
-  return deck.reduce(( acc, cur ) => acc.concat(cur), []);
+  return cardSuits.reduce((accumulator, currentValue) => {
+    const suit = currentValue;
+    return accumulator.concat(returnSuit(suit));
+  }, []);
 }
 
-function returnSuit(deck: Array<string>, suit: string) {
-  for (let i = 0; i < 13; i++) {
-    deck = [...deck, returnCard(suit, i + 1, returnCardFace(i + 1))];
-  }
-  return deck;
+function returnSuit(suit: string) {
+  return cardValues.reduce((accumulator, currentValue) => {
+    return [...accumulator, returnCard(suit, currentValue, returnCardFace(currentValue))];
+  }, [])
+}
+
+function addtoDeck(deck, card) {
+  return [...deck, card];
 }
 
 function returnCardFace(number: number) {
@@ -64,8 +71,8 @@ export function shuffleDeck(cards: CardDeckType) {
   return cards;
 }
 
-export function slideDeck(cards: CardDeckType, count: number = 10) {
-  return cards.slice(0, 10)
+export function sliceDeck(cards: CardDeckType, count: number = 10) {
+  return cards.slice(0, count);
 }
 
 export function dealCards(deck: CardDeckType, count: number) {
