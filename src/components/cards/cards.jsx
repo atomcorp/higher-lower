@@ -13,12 +13,11 @@ export const cardValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 export const cardSuits = ['hearts', 'clubs', 'spades', 'diamonds'];
 
 function returnCard(suit: string, value: number, name: string) {
-  const card = {
+  return {
     suit: suit,
     value: value,
     name: name
   }
-  return card;
 }
 
 function resetDeck(deck) {
@@ -31,15 +30,14 @@ export function newDeck(deck: Array<void>) {
 
 function buildDeck(deck: Array<void>) {
   return cardSuits.reduce((accumulator, currentValue) => {
-    const suit = currentValue;
-    return accumulator.concat(returnSuit(suit));
-  }, []);
+    return returnSuit(currentValue, accumulator);
+  }, deck);
 }
 
-function returnSuit(suit: string) {
+function returnSuit(suit: string, deck: Array<void>) {
   return cardValues.reduce((accumulator, currentValue) => {
     return [...accumulator, returnCard(suit, currentValue, returnCardFace(currentValue))];
-  }, [])
+  }, deck);
 }
 
 function addtoDeck(deck, card) {
