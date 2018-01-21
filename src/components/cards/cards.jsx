@@ -18,19 +18,19 @@ function resetDeck(deck) {
 }
 
 export function newDeck(deck: {}) {
-  return shuffleDeck(buildDeck(resetDeck(deck)));
+  return buildDeck(resetDeck(deck));
 }
 
 function buildDeck(deck: CardDeckType) {
-  return ['hearts', 'clubs', 'spades', 'diamonds'].reduce((accumulator, currentValue) => {
-    return Object.assign(accumulator, returnSuit(currentValue, accumulator));
+  return ['hearts', 'clubs', 'spades', 'diamonds'].reduce((accumulator: {}, currentValue) => {
+    return Object.assign({}, accumulator, returnSuit(currentValue, accumulator));
   }, deck);
 }
 
 function returnSuit(suit: string, deck: CardDeckType) {
   // Array.from(Array(13), (el, i) => el = i + 1) simply creates an array of 1 - 13
-  return Array.from(Array(13), (el, i) => el = i + 1).reduce((accumulator, currentValue) => {
-    return Object.assign(accumulator, returnCard(suit, currentValue, returnCardFace(currentValue)));
+  return Array.from(Array(13), (el, i) => el = i + 1).reduce((accumulator: {}, currentValue) => {
+    return Object.assign({}, accumulator, returnCard(suit, currentValue, returnCardFace(currentValue)));
   }, deck);
 }
 

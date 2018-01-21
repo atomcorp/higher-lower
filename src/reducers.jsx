@@ -34,6 +34,10 @@ function cards(state = {}, action) {
   }
 }
 
+function activeCards(state, action) {
+  
+}
+
 // ok!
 // this is my state, I can define actions on each little bit of state
 // ok!
