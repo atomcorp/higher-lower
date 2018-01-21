@@ -4,4 +4,4 @@ export type Card = {
   name: string
 };
 
-export type CardDeck = Array<Card>;
+export type CardDeck = {};

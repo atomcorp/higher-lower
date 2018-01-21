@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import Card from '../card/card.jsx';
 import Game from '../../containers/game/game.jsx';

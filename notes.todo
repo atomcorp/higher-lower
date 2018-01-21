@@ -36,5 +36,26 @@ Components:
 References:
   Card CSS: https://designshack.net/articles/css/css-card-tricks/
 
-
+State:
+  // state object
+  const fakeState = {
+    deck: ['card objects go here'],
+    deckCount: 0,
+    players: {
+      player1: {
+        id: 'player1',
+        playerType: 'human',
+        name: 'tom',
+        points: 0
+      },
+      player2: {
+        id: 'player2',
+        playerType: 'computer',
+        name: 'bytes',
+        points: 0
+      }
+    },
+    activePlayer: 'player1',
+    higherOrLower: 'higher'
+  }
 

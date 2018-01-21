@@ -2,31 +2,35 @@
 import {CardDeck as CardDeckType} from '../../types.js';
 
 function returnCard(suit: string, value: number, name: string) {
+  const id = suit.charAt(0) + value;
   return {
-    suit: suit,
-    value: value,
-    name: name
+    [id]: {
+      suit: suit,
+      value: value,
+      name: name,
+      id
+    }
   }
 }
 
 function resetDeck(deck) {
-  return deck = [];
+  return deck = {};
 }
 
-export function newDeck(deck: Array<void>) {
+export function newDeck(deck: {}) {
   return shuffleDeck(buildDeck(resetDeck(deck)));
 }
 
-function buildDeck(deck: Array<void>) {
+function buildDeck(deck: CardDeckType) {
   return ['hearts', 'clubs', 'spades', 'diamonds'].reduce((accumulator, currentValue) => {
-    return returnSuit(currentValue, accumulator);
+    return Object.assign(accumulator, returnSuit(currentValue, accumulator));
   }, deck);
 }
 
-function returnSuit(suit: string, deck: Array<void>) {
+function returnSuit(suit: string, deck: CardDeckType) {
   // Array.from(Array(13), (el, i) => el = i + 1) simply creates an array of 1 - 13
   return Array.from(Array(13), (el, i) => el = i + 1).reduce((accumulator, currentValue) => {
-    return [...accumulator, returnCard(suit, currentValue, returnCardFace(currentValue))];
+    return Object.assign(accumulator, returnCard(suit, currentValue, returnCardFace(currentValue)));
   }, deck);
 }
 
@@ -55,20 +59,10 @@ export function shuffleDeck(cards: CardDeckType) {
   return cards;
 }
 
-export function sliceDeck(cards: CardDeckType, count: number = 10) {
+export function pickedCards(cards: CardDeckType, count: number = 10) {
   return cards.slice(0, count);
 }
 
-export function dealCards(deck: CardDeckType, count: number) {
-  // pull out top card
-  // remove card from deck and return new deck
-  let cards = [];
-  for (let i = 0; i < count; i++) {
-    cards = [...cards, deck[i]];
-  }
-  const newDeck = deck.slice(count);
-  return {
-    cards: cards,
-    deck: newDeck
-  };
+export function remainingDeck(deck: CardDeckType, count: number) {
+  return deck.slice(count, deck.length);
 }

@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 
 // contains all game playing methods
