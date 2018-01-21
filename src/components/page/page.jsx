@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { newDeck, dealCards } from '../cards/cards.jsx';
+import { newDeck } from '../cards/cards.jsx';
 
 console.log(newDeck());
 export default class Page extends Component {

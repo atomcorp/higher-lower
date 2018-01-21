@@ -1,17 +1,6 @@
 // @flow
 import {CardDeck as CardDeckType} from '../../types.js';
 
-const cardVals = function() {
-  let arr = [];
-  for (var i = 0; i < 13; i++) {
-    arr.push(i);
-  }
-  return arr;
-}
-
-export const cardValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-export const cardSuits = ['hearts', 'clubs', 'spades', 'diamonds'];
-
 function returnCard(suit: string, value: number, name: string) {
   return {
     suit: suit,
@@ -29,19 +18,16 @@ export function newDeck(deck: Array<void>) {
 }
 
 function buildDeck(deck: Array<void>) {
-  return cardSuits.reduce((accumulator, currentValue) => {
+  return ['hearts', 'clubs', 'spades', 'diamonds'].reduce((accumulator, currentValue) => {
     return returnSuit(currentValue, accumulator);
   }, deck);
 }
 
 function returnSuit(suit: string, deck: Array<void>) {
-  return cardValues.reduce((accumulator, currentValue) => {
+  // Array.from(Array(13), (el, i) => el = i + 1) simply creates an array of 1 - 13
+  return Array.from(Array(13), (el, i) => el = i + 1).reduce((accumulator, currentValue) => {
     return [...accumulator, returnCard(suit, currentValue, returnCardFace(currentValue))];
   }, deck);
-}
-
-function addtoDeck(deck, card) {
-  return [...deck, card];
 }
 
 function returnCardFace(number: number) {
