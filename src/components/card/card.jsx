@@ -1,13 +1,15 @@
 // @flow
-import React from 'react';
+// import React from 'react';
+// import type { CardType } from '../../types.js';
 
-import { Card as CardType } from '../../types.js';
+// type Props = {
+//   suit: string, 
+//   value: number, 
+//   name: string,
+//   [string]: number 
+// }
 
-type Props = {
-  cardObj: CardType
-};
-
-export default function Card(props: Props) {
-  const card = props.cardObj;
-  return <div>{`${card.name} of ${card.suit}`}</div>
-} 
+// export default function Card(props: Props): React<HTMLDivElement> {
+//   const card = props.cardObj;
+//   return <div>{`${card.name} of ${card.suit}`}</div>
+// } 

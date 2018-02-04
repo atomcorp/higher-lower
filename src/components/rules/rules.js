@@ -1,9 +1,7 @@
 // @flow
-import { CardDeck as CardDeckType } from '../../types.js';
-
 // contains all game logic
 
-export function isHigherOrLower(previous: number, current: number, choice: boolean) {
+export function isHigherOrLower(previous: number, current: number, choice: boolean): boolean {
   // choice: true = higher, lower = false
   if (previous === current) {
     return true;
@@ -15,7 +13,7 @@ export function isHigherOrLower(previous: number, current: number, choice: boole
   }
 }
   
-export function round(cards: CardDeckType) {
+export function round(cards: Array<string>): string | number {
   if (cards.length < 1) {
     return 'Won';
   } else {

@@ -1,7 +1,19 @@
-export type Card = {
-  suit: string, 
-  value: number, 
-  name: string
+// @flow
+
+export type CardType = {
+  [string]: {
+    suit: string, 
+    value: number, 
+    name: string,
+    [string]: number 
+  }
 };
 
-export type CardDeck = {};
+export type CardDeckType = {
+  [string]: {
+    suit: string, 
+    value: number, 
+    name: string,
+    [string]: number 
+  }
+};
