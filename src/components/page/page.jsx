@@ -1,19 +1,29 @@
 // @flow
 import React, { Component } from 'react';
 import { createStore } from 'redux';
-import higherLowerApp from '../../reducers.jsx';
+import higherLowerApp from '../../reducers/reducers-index.js';
+import { togglePlayer, addToCurrentCounter, shuffleNewDeck } from '../../actions/actions-index.js';
 import { newDeck, shuffleDeck } from '../cards/cards.jsx';
-import { togglePlayer } from '../../action-creators.jsx';
 
-let store = createStore(higherLowerApp);
-console.log(store.getState());
+const deck = newDeck();
+const cardKeys = Object.keys(deck);
+const initialState = {
+  cardOrder: shuffleDeck(cardKeys),
+  cardCounter: 0
+};
+let store = createStore(higherLowerApp, initialState);
 const unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
+  console.info(store.getState())
 )
+
+store.dispatch(addToCurrentCounter());
 store.dispatch(togglePlayer('player2'));
-const deck = newDeck({});
-const deckKeys = Object.keys(deck);
-console.log(deck, shuffleDeck(deckKeys));
+store.dispatch(shuffleNewDeck(shuffleDeck(cardKeys)));
+unsubscribe();
+
+function Test() {
+  return <h1>{store.getState().cardOrder[0]}</h1>
+}
 
 export default class Page extends Component {
 
@@ -21,6 +31,7 @@ export default class Page extends Component {
     return (
       <section>
         <h1>Higher or Lower</h1>
+        <Test></Test>
       </section>
     );
   }

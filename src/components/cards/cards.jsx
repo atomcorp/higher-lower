@@ -17,7 +17,7 @@ function resetDeck(deck) {
   return deck = {};
 }
 
-export function newDeck(deck: {}) {
+export function newDeck(deck: {} = {}) {
   return buildDeck(resetDeck(deck));
 }
 

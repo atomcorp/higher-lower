@@ -1,4 +1,4 @@
-import { CHANGE_PLAYER, DEAL_CARDS, HIGHER_LOWER } from './action-types.jsx';
+import { CHANGE_PLAYER, DEAL_CARDS, HIGHER_LOWER, UPDATE_CURRENT_CARD } from './action-types.jsx';
 
 export function togglePlayer(player: string) {
   return {
@@ -7,16 +7,23 @@ export function togglePlayer(player: string) {
   }
 }
 
-export function dealCards(number: number) {
-  return {
-    type: DEAL_CARDS,
-    number: number
-  }
-}
+// export function dealCards(number: number) {
+//   return {
+//     type: DEAL_CARDS,
+//     number: number
+//   }
+// }
 
-export function higherOrLower(higherOrLower: string) {
+// export function higherOrLower(higherOrLower: string) {
+//   return {
+//     type: HIGHER_LOWER,
+//     higherOrLower: higherOrLower
+//   }
+// }
+let cardCount = 0;
+export function addToCurrentCounter() {
   return {
-    type: HIGHER_LOWER,
-    higherOrLower: higherOrLower
+    type: UPDATE_CURRENT_CARD,
+    cardCounter: cardCount++
   }
 }

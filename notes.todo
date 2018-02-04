@@ -39,8 +39,9 @@ References:
 State:
   // state object
   const fakeState = {
-    deck: ['card objects go here'],
-    deckCount: 0,
+    deck: ['card objects go here'], // never changes
+    cardOrder/selection: [..., "c7", "h5"], // array of ids
+    cardCounter: 0,
     players: {
       player1: {
         id: 'player1',
