@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import { createStore } from 'redux';
-import higherLowerApp from '../../reducers/reducers-index.js';
-import { togglePlayer, addToCurrentCounter, shuffleNewDeck } from '../../actions/actions-index.js';
+import higherLowerApp from '../../redux/reducers/reducers-index.js';
+import { togglePlayer, addToCurrentCounter, shuffleNewDeck } from '../../redux/actions/actions-index.js';
 import { newDeck, shuffleDeck } from '../cards/cards.jsx';
 
 const deck = newDeck();
