@@ -3,23 +3,22 @@ import React, { Component } from 'react';
 import { createStore } from 'redux';
 import higherLowerApp from '../../redux/reducers/reducers-index.js';
 import { togglePlayer, addToCurrentCounter, shuffleNewDeck } from '../../redux/actions/actions-index.js';
-import { newDeck, shuffleDeck } from '../cards/cards.jsx';
+import { deck, shuffleDeckKeys } from '../../components/cards/cards.js';
 
-const deck = newDeck();
 const cardKeys = Object.keys(deck);
 const initialState = {
-  cardOrder: shuffleDeck(cardKeys),
+  cardOrder: shuffleDeckKeys(cardKeys),
   cardCounter: 0
 };
 let store = createStore(higherLowerApp, initialState);
-const unsubscribe = store.subscribe(() =>
-  console.info(store.getState())
-)
+// const unsubscribe = store.subscribe(() =>
+//   console.info(store.getState())
+// )
 
-store.dispatch(addToCurrentCounter());
-store.dispatch(togglePlayer('player2'));
-store.dispatch(shuffleNewDeck(shuffleDeck(cardKeys)));
-unsubscribe();
+// store.dispatch(addToCurrentCounter());
+// store.dispatch(togglePlayer('player2'));
+// store.dispatch(shuffleNewDeck(shuffleDeckKeys(cardKeys)));
+// unsubscribe();
 
 function Test() {
   return <h1>{store.getState().cardOrder[0]}</h1>
